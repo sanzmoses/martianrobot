@@ -17,6 +17,7 @@ session_start();
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
                 <h1 class="mt-5"><b> Martian Robot </b></h1>
+                <a target="_blank" href="https://github.com/sanzmoses">Sanz Moses</a>
             </div>
             <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                 <div class="row mt-4">
@@ -72,7 +73,7 @@ session_start();
                         <div class="card w-100 mt-3">
                             <div class="card-body">
                                 <a class="info" href="/problem.html">Martian Robot Programming Problem</a> <br>
-                                <a class="info" href="https://github.com/sanzmoses/martianrobot.git" target="_blank">Code @ https://github.com/sanzmoses/martianrobot.git</a> 
+                                <a class="info" href="https://github.com/sanzmoses/martianrobot.git" target="_blank">Code and  Architecture & Design Overview @ readme</a> 
                             </div>
                         </div>
                     </div>
