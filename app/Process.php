@@ -74,6 +74,9 @@ function validateInputs($world, $robotInputs) {
             if(!preg_match("/^[LRF]+$/", $robotInputs[$x])) {
                 $_SESSION['error'] = "'".$robotInputs[$x]."' Somethings wrong in line ".$x+=2;
                 return false;
+            } else if (strlen($robotInputs[$x]) > 50) {
+                $_SESSION['error'] = "'".$robotInputs[$x]."' Commands too long in line ".$x+=2;
+                return false;
             }
         } else {
             if(!preg_match("/\d{1}\s{1}\d{1}\s{1}[NEWS]{1}+$/", $robotInputs[$x])){

@@ -101,4 +101,8 @@ session_start();
         font-size: 12px;
     }
 
+    .alert {
+        word-wrap: break-word;
+    }
+
 </style>
