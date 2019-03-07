@@ -10,14 +10,10 @@ class Robot
     const orientations = ['N', 'E', 'S', 'W'];
     const turns = ['R'=>1, 'L'=>-1];
 
-    public static $number_of_robots = 0;
-
     function __construct($orientation, $coordinates) {
         $this->orientation = array_search($orientation, Robot::orientations);
         $this->coordinates = $coordinates;
         $this->status = '';
-
-        Robot::$number_of_robots++;
     }
 
     function __get($name) {
@@ -61,7 +57,9 @@ class Robot
 
     public function robotIsLost() {
         $this->status = 'LOST';
-        $this->coordinates = $this->prevCoordinates;
+        if($this->prevCoordinates) {
+            $this->coordinates = $this->prevCoordinates;
+        }
     }
 
     public function getOrientation() {

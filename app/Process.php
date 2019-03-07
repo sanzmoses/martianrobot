@@ -56,7 +56,7 @@ function positionConverter($string) {
 }
 
 function validateInputs($world, $robotInputs) {
-    if(!preg_match("/\d{1}\s{1}\d{1}$/", $world)) {
+    if(!preg_match("/^\d{1}\s{1}\d{1}$/", $world)) {
         //if world coordinates are invalid
         $_SESSION['error'] = 'Invalid coordinates in line 1';
         return false;
@@ -107,7 +107,7 @@ function start_process($world_coordinates, $robots) {
         foreach($commands as $command) {
             //foreach command check if there is a scent in the current position
             $scent = $mars->checkForScent($bot->getPosition());
-            //pass the scent into the move command
+            //pass the scent[true or false] into the move command
             $bot->move($command, $scent);
 
             //check if the robot is still in the designated area
