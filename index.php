@@ -17,7 +17,7 @@ session_start();
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
                 <h1 class="mt-5"><b> Martian Robot </b></h1>
-                <a target="_blank" href="https://github.com/sanzmoses">Sanz Moses</a>
+                
             </div>
             <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                 <div class="row mt-4">
