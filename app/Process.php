@@ -79,7 +79,7 @@ function validateInputs($world, $robotInputs) {
                 return false;
             }
         } else {
-            if(!preg_match("/\d{1}\s{1}\d{1}\s{1}[NEWS]{1}+$/", $robotInputs[$x])){
+            if(!preg_match("/^\d{1}\s{1}\d{1}\s{1}[NEWS]{1}+$/", $robotInputs[$x])){
                 $_SESSION['error'] = "'".$robotInputs[$x]."' Somethings wrong in line ".$x+=2;
                 return false;
             } 
