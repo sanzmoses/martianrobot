@@ -14,7 +14,7 @@ if(isset($_POST['process'])) {
         $_SESSION['inputs'] = $str;
         //break into array
         $inputs = cleanInputs(explode(PHP_EOL, $str));
-        //get 1st line
+        //get 1st line the world coordinate
         $world_coordinates = rtrim(array_shift($inputs));
         
         //check validity
@@ -93,28 +93,35 @@ function start_process($world_coordinates, $robots) {
     //instantiate world
     $mars = new World($world_coordinates);
     
-    $results = " ";
-    //process the first robot
+    $results = "";
+    //process the the robots one by one
     for($x = 0; $x < count($robots); $x+=2) {
-        //instantiate a new robot
+        //prepare data for the robot
         $position = positionConverter($robots[$x]);
-        //split commands into array
         $commands = str_split($robots[$x+1]);
 
+        //instantiate a new robot
         $bot = new Robot($position['orientation'], $position['coordinates']);
     
+        //loop through the commands
         foreach($commands as $command) {
-
+            //foreach command check if there is a scent in the current position
             $scent = $mars->checkForScent($bot->getPosition());
+            //pass the scent into the move command
             $bot->move($command, $scent);
 
+            //check if the robot is still in the designated area
             if(!$mars->checkPosition($bot->coordinates)) {
+                //if not declare robot is lost
                 $bot->robotIsLost();
+                //robot leave a scent in previous position
                 $mars->addScent($bot->getPrevPosition());
+                //ignore all other commands to follow
                 break;
             }
         }
 
+        //record how the expidition went
         $results .= $bot->coordinates['x'].' '.$bot->coordinates['y'].' '.$bot->getOrientation().' <span class="status">'.$bot->status.'</span><br>';
     }
 
