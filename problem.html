@@ -1,0 +1,93 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Martian Robot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                 <h3 class="mt-3 font-weight-bold"> <span><a class="btn btn-dark btn-sm" href="/"> Back</a></span> Martian Robot Programming Problem</h3>
+            </div>
+            <div class="col-md-12">
+                <p class="font-weight-bold mt-3">Introduction</p>
+                <p>Design & implement a solution using C#/php to solve the problem described below. The objective of the problem is to allow the candidate to demonstrate their design principles and development skills. The problem is provided with sample data to be used for testing and the candidate should be able to demonstrate their solution using the supplied data in the form of a unit test or a simple user interface.</p>
+
+                <p class="mt-3 font-weight-bold">The Problem</p>
+                <p>The surface of Mars can be modelled by a rectangular grid around which robots are able to move according to instructions provided from Earth. You are to write a program that determines each sequence of robot positions and reports the final position of the robot.</p>
+                <ul>
+                    <li>A robot position consists of a grid coordinate (a pair of integers: x-coordinate followed by ycoordinate) and an orientation (N, S, E, W for north, south, east, and west).</li>
+                    <li>A robot instruction is a string of the letters “L”, “R”, and “F” which represent, respectively, the instructions:</li>
+                    <ul>
+                        <li><b>Left</b> : the robot turns left 90 degrees and remains on the current grid point</li>
+                        <li><b>Right</b> : the robot turns right 90 degrees and remains on the current grid point.</li>
+                        <li><b>Forward</b> : the robot moves forward one grid point in the direction of the current orientation and maintains the same orientation. The direction North corresponds to the direction from grid point (x, y) to grid point (x,y+1). There is also a possibility that additional command types maybe required in the future and provision should be made for this.
+                            Since the grid is rectangular and bounded, a robot that moves “off” an edge of the grid is lost forever. However, lost robots leave a robot “scent” that prohibits future robots from dropping off the world at the same grid point. The scent is left at the last grid position the robot occupied before disappearing over the edge. An instruction to move “off” the world from a grid point from which a robot has been previously lost is simply ignored by the current robot.</li>
+                    </ul>
+                </ul>
+                <p class="font-weight-bold mt-2">Input</p>
+                <ul>
+                    <li>The first line of input is the upper-right coordinates of the rectangular world, the lower-left coordinates are assumed to be 0,0.</li>
+                    <li>The remaining input consists of a sequence of robot positions and instructions (two lines per robot).</li>
+                    <li>A position consists of two integers specifying the initial coordinates of the robot and an orientation (N, S, E, W), all separated by white space on one line. A robot instruction is a string of the letters “L”, “R”, and “F” on one line.
+                        Each robot is processed sequentially, i.e., finishes executing the robot instructions before the next robot begins execution.</li>
+                    <li>The maximum value for any coordinate is 50. All instruction strings will be less than 100 characters in length.</li>
+                </ul>
+                <p class="font-weight-bold mt-2">Output</p>
+                <ul>
+                    <li>For each robot position/instruction in the input, the output should indicate the final grid position and orientation of the robot. If a robot falls off the edge of the grid the word “LOST” should be printed after the position and orientation.</li>
+                </ul>
+
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                    <div class="row">
+                    <div class="col-md-7">
+                        <p class="font-weight-bold mt-2">Sample Input</p>
+                        <pre>
+5 3 (World Coordinates)
+1 1 E (Robot 1 Position and Orientation)
+RFRFRFRF (Robot 1 Commands)
+3 2 N
+FRRFLLFFRRFLL
+0 3 W
+LLFFFLFLFL  
+                        </pre>
+                    </div>
+                    <div class="col-md-5">
+                        <p class="font-weight-bold mt-2">Sample Output</p>
+                        <pre>
+1 1 E
+3 3 N LOST
+2 3 S
+                        </pre>
+                    </div>
+                    </div>  
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<style>
+    body {
+        font-size: 16px;
+        font-family: "Courier New", Courier, monospace
+    }
+
+</style>

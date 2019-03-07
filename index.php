@@ -71,10 +71,8 @@ session_start();
                     <div class="col-md-12">
                         <div class="card w-100 mt-3">
                             <div class="card-body">
-                                <p class="card-text">Martian Robot Programming Problem</p>
-                                <small> Problem : </small>
-                                <small> Code : </small>
-                                <a href="#" class="btn btn-primary btn-sm">Button</a>
+                                <a class="info" href="/problem.html">Martian Robot Programming Problem</a> <br>
+                                <a class="info" href="https://github.com/sanzmoses/martianrobot.git" target="_blank">Code @ https://github.com/sanzmoses/martianrobot.git</a> 
                             </div>
                         </div>
                     </div>
@@ -97,6 +95,10 @@ session_start();
 
     .status {
         color: #f55a5a;
+    }
+
+    .info {
+        font-size: 12px;
     }
 
 </style>
