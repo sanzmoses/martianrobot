@@ -1,4 +1,5 @@
-# Martian Robot Programming Problem
+# My own solution to the Martian Robot Programming Problem
+> Sanz Moses
 
 ### Architecture & Design Overview
 
