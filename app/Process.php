@@ -55,10 +55,16 @@ function positionConverter($string) {
     return $array;
 }
 
-function validateInputs($world, $robotInputs) {
-    if(!preg_match("/^\d{1}\s{1}\d{1}$/", $world)) {
+function validateInputs($world, $robotInputs) { 
+    if(!preg_match("/^(\d{1,2}\s{1}\d{1,2})$/", $world)) {
         //if world coordinates are invalid
         $_SESSION['error'] = 'Invalid coordinates in line 1';
+        return false;
+    }
+
+    $world_arr = explode(" ", $world);
+    if($world_arr[0] > 50 || $world_arr[1] > 50) {
+        $_SESSION['error'] = 'Maximum value for coordinates is 50 in line 1';
         return false;
     }
 
@@ -74,15 +80,21 @@ function validateInputs($world, $robotInputs) {
             if(!preg_match("/^[LRF]+$/", $robotInputs[$x])) {
                 $_SESSION['error'] = "'".$robotInputs[$x]."' Somethings wrong in line ".$x+=2;
                 return false;
-            } else if (strlen($robotInputs[$x]) > 50) {
+            } else if (strlen($robotInputs[$x]) > 99) {
                 $_SESSION['error'] = "'".$robotInputs[$x]."' Commands too long in line ".$x+=2;
                 return false;
             }
         } else {
-            if(!preg_match("/^\d{1}\s{1}\d{1}\s{1}[NEWS]{1}+$/", $robotInputs[$x])){
+            if(!preg_match("/^\d{1,2}\s{1}\d{1,2}\s{1}[NEWS]{1}+$/", $robotInputs[$x])){
                 $_SESSION['error'] = "'".$robotInputs[$x]."' Somethings wrong in line ".$x+=2;
                 return false;
             } 
+            $robotCoordinates = explode(" ", $robotInputs[$x]);
+            if($robotCoordinates[0] > 50 || $robotCoordinates[1] > 50) {
+                $_SESSION['error'] = "'".$robotInputs[$x]."' Maximum value for coordinates is 50 ".$x+=2;
+                return false;
+            }
+
         }
     }
 
