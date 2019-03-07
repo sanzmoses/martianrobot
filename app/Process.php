@@ -109,7 +109,7 @@ function start_process($world_coordinates, $robots) {
             $bot->move($command, $scent);
 
             if(!$mars->checkPosition($bot->coordinates)) {
-                $bot->status = 'LOST';
+                $bot->robotIsLost();
                 $mars->addScent($bot->getPrevPosition());
                 break;
             }

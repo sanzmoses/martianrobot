@@ -60,6 +60,11 @@ class Robot
         $this->coordinates[$coordinate] += $num;
     }
 
+    public function robotIsLost() {
+        $this->status = 'LOST';
+        $this->coordinates = $this->prevCoordinates;
+    }
+
     public function getOrientation() {
         return Robot::orientations[$this->orientation];
     }
