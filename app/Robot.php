@@ -5,7 +5,6 @@ class Robot
     protected $orientation;
     protected $coordinates;
     public $status;
-    protected $commands;
     protected $prevCoordinates;
     
     const orientations = ['N', 'E', 'S', 'W'];
