@@ -17,7 +17,7 @@ session_start();
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
                 <h1 class="mt-5"><b> Martian Robot </b></h1>
-                
+                <p>Codesign by <a class="badge badge-warning" target="_blank" href="http://sanzmoses.ml">Sanz</a> </p>
             </div>
             <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                 <div class="row mt-4">
@@ -49,14 +49,14 @@ session_start();
                                 </textarea>
 
                             </div>
-                            <button type="submit" name="process" class="btn btn-dark btn-sm btn-block">Submit Input</button>
+                            <button type="submit" name="process" class="btn btn-info btn-sm btn-block">Submit Input</button>
                         </form>
                     </div>
                     <div class="col-sm-6 col-md-6">
                         <div class="card text-white bg-dark mt-4" style="max-width: 100%; height: 230px;">
-                            <div class="card-header">Results</div>
+                            <div class="card-header font-weight-bold text-info">Results</div>
                             <div class="card-body" style="overflow: auto;">
-                                <p class="card-text ml-1">
+                                <p class="card-text ml-1 text-success">
                                 <?php 
                                     if(isset($_SESSION['results'])) {
                                         echo $_SESSION['results']; 
@@ -71,9 +71,9 @@ session_start();
                     </div>
                     <div class="col-md-12">
                         <div class="card w-100 mt-3">
-                            <div class="card-body">
-                                <a class="info" href="/problem.html">Martian Robot Programming Problem</a> <br>
-                                <a class="info" href="https://github.com/sanzmoses/martianrobot.git" target="_blank">Code and  Architecture & Design Overview @ readme</a> 
+                            <div class="card-body bg-default">
+                                <a class="info text-primary" href="/problem.html">The problem - Martian Robot Programming Problem</a> <br>
+                                <a class="info text-primary" href="https://github.com/sanzmoses/martianrobot.git" target="_blank">My solution - https://github.com/sanzmoses/martianrobot</a> 
                             </div>
                         </div>
                     </div>
